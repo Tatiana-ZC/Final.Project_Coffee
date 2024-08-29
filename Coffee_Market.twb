@@ -1,0 +1,594 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20242.24.0807.0327                               -->
+<workbook original-version='18.1' source-build='2024.2.2 (20242.24.0807.0327)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='Coffee_Trade' inline='true' name='federated.09kc3t01q6yryy138altl0tiau2q' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='brazil_trade' name='textscan.1kxosyo01um73817g5o6l0113ife'>
+            <connection class='textscan' directory='C:/Users/TatyZC/Documents/Ironhack/Projects/Final_Project/Final.Project_Coffee/datasets' filename='brazil_trade.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.1kxosyo01um73817g5o6l0113ife' name='brazil_trade.csv' table='[brazil_trade#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='es_ES' separator=','>
+            <column datatype='integer' name='Year' ordinal='0' />
+            <column datatype='integer' name='Month' ordinal='1' />
+            <column datatype='integer' name='Period' ordinal='2' />
+            <column datatype='string' name='ReporterISO' ordinal='3' />
+            <column datatype='string' name='ReporterDesc' ordinal='4' />
+            <column datatype='string' name='FlowCode' ordinal='5' />
+            <column datatype='string' name='FlowDesc' ordinal='6' />
+            <column datatype='string' name='PartnerISO' ordinal='7' />
+            <column datatype='string' name='PartnerDesc' ordinal='8' />
+            <column datatype='integer' name='CmdCode' ordinal='9' />
+            <column datatype='string' name='CmdDesc' ordinal='10' />
+            <column datatype='string' name='Qty_in_kg' ordinal='11' />
+            <column datatype='integer' name='PrimaryValue' ordinal='12' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.1kxosyo01um73817g5o6l0113ife' name='brazil_trade.csv' table='[brazil_trade#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='es_ES' separator=','>
+            <column datatype='integer' name='Year' ordinal='0' />
+            <column datatype='integer' name='Month' ordinal='1' />
+            <column datatype='integer' name='Period' ordinal='2' />
+            <column datatype='string' name='ReporterISO' ordinal='3' />
+            <column datatype='string' name='ReporterDesc' ordinal='4' />
+            <column datatype='string' name='FlowCode' ordinal='5' />
+            <column datatype='string' name='FlowDesc' ordinal='6' />
+            <column datatype='string' name='PartnerISO' ordinal='7' />
+            <column datatype='string' name='PartnerDesc' ordinal='8' />
+            <column datatype='integer' name='CmdCode' ordinal='9' />
+            <column datatype='string' name='CmdDesc' ordinal='10' />
+            <column datatype='string' name='Qty_in_kg' ordinal='11' />
+            <column datatype='integer' name='PrimaryValue' ordinal='12' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;es&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;€&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;es_ES&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Month]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>Month</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Period</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Period]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>Period</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ReporterISO</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ReporterISO]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>ReporterISO</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ReporterDesc</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ReporterDesc]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>ReporterDesc</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FlowCode</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[FlowCode]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>FlowCode</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FlowDesc</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[FlowDesc]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>FlowDesc</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PartnerISO</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PartnerISO]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>PartnerISO</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PartnerDesc</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PartnerDesc]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>PartnerDesc</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CmdCode</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[CmdCode]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>CmdCode</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CmdDesc</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[CmdDesc]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>CmdDesc</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Qty_in_kg</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Qty_in_kg]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>Qty_in_kg</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PrimaryValue</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[PrimaryValue]</local-name>
+            <parent-name>[brazil_trade.csv]</parent-name>
+            <remote-alias>PrimaryValue</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Cmd Code' datatype='integer' name='[CmdCode]' role='dimension' type='ordinal' />
+      <column caption='Cmd Desc' datatype='string' name='[CmdDesc]' role='dimension' type='nominal' />
+      <column caption='Flow Code' datatype='string' name='[FlowCode]' role='dimension' type='nominal' />
+      <column caption='Flow Desc' datatype='string' name='[FlowDesc]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Month]' role='dimension' type='quantitative' />
+      <column caption='Partner Desc' datatype='string' name='[PartnerDesc]' role='dimension' type='nominal' />
+      <column caption='Partner ISO' datatype='string' name='[PartnerISO]' role='dimension' type='nominal' />
+      <column caption='Primary Value' datatype='integer' name='[PrimaryValue]' role='measure' type='quantitative' />
+      <column caption='Qty in kg' datatype='string' name='[Qty_in_kg]' role='dimension' type='nominal' />
+      <column caption='Reporter Desc' datatype='string' name='[ReporterDesc]' role='dimension' type='nominal' />
+      <column caption='Reporter ISO' datatype='string' name='[ReporterISO]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='brazil_trade.csv' datatype='table' name='[__tableau_internal_object_id__].[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]' role='measure' type='quantitative' />
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' author-locale='en_GB' class='hyper' dbname='C:/Users/TatyZC/AppData/Local/Temp/TableauTemp/#TableauTemp_0sz1u6p14u6q921d3gu7k18mclr5.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='08/28/2024 11:20:23 AM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year</remote-alias>
+              <ordinal>0</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Month</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Month]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Month</remote-alias>
+              <ordinal>1</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Period</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Period]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Period</remote-alias>
+              <ordinal>2</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>84</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ReporterISO</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ReporterISO]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ReporterISO</remote-alias>
+              <ordinal>3</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ReporterDesc</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ReporterDesc]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ReporterDesc</remote-alias>
+              <ordinal>4</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>FlowCode</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[FlowCode]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>FlowCode</remote-alias>
+              <ordinal>5</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>FlowDesc</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[FlowDesc]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>FlowDesc</remote-alias>
+              <ordinal>6</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>PartnerISO</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[PartnerISO]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>PartnerISO</remote-alias>
+              <ordinal>7</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>143</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>PartnerDesc</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[PartnerDesc]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>PartnerDesc</remote-alias>
+              <ordinal>8</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>143</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>CmdCode</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[CmdCode]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>CmdCode</remote-alias>
+              <ordinal>9</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>CmdDesc</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[CmdDesc]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>CmdDesc</remote-alias>
+              <ordinal>10</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Qty_in_kg</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Qty_in_kg]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Qty_in_kg</remote-alias>
+              <ordinal>11</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2864</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>PrimaryValue</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[PrimaryValue]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>PrimaryValue</remote-alias>
+              <ordinal>12</ordinal>
+              <family>brazil_trade.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5086</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Spain&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='brazil_trade.csv' id='brazil_trade.csv_3E35E343CAF84648AB233EC9FF98D143'>
+            <properties context=''>
+              <relation connection='textscan.1kxosyo01um73817g5o6l0113ife' name='brazil_trade.csv' table='[brazil_trade#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='es_ES' separator=','>
+                  <column datatype='integer' name='Year' ordinal='0' />
+                  <column datatype='integer' name='Month' ordinal='1' />
+                  <column datatype='integer' name='Period' ordinal='2' />
+                  <column datatype='string' name='ReporterISO' ordinal='3' />
+                  <column datatype='string' name='ReporterDesc' ordinal='4' />
+                  <column datatype='string' name='FlowCode' ordinal='5' />
+                  <column datatype='string' name='FlowDesc' ordinal='6' />
+                  <column datatype='string' name='PartnerISO' ordinal='7' />
+                  <column datatype='string' name='PartnerDesc' ordinal='8' />
+                  <column datatype='integer' name='CmdCode' ordinal='9' />
+                  <column datatype='string' name='CmdDesc' ordinal='10' />
+                  <column datatype='string' name='Qty_in_kg' ordinal='11' />
+                  <column datatype='integer' name='PrimaryValue' ordinal='12' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{021C4782-F991-4464-9A19-3F0A5C248337}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{255C17E4-2153-4C5F-AAF5-B8BABC62478C}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='384' name='Sheet 1' width='384'>
+      iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAFXUlEQVR4nO3VMQEAIAzAMMC/5yFjRxMF/XpnZg4AOW87AIAdBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEfFxoG/IiMv0YAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>

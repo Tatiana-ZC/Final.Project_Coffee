@@ -5,6 +5,10 @@ import pycountry
 import glob
 from sqlalchemy import create_engine
 import config 
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+import seaborn as sns
+sns.set_theme()
 
 # Combining and Sort CSV Files into a Single DataFrame
 def process_files(path: str, filename_convention: str, year_range: tuple):
@@ -133,7 +137,7 @@ def create_sqlalchemy_engine(user: str, password: str, host: str, database: str,
     return engine
 
 # Include dataframe into MySQL
-def insert_dataframe_to_mysql(df, table_name, engine, if_exists='replace'):
+def insert_dataframe_to_mysql(df: pd.DataFrame, table_name: str, engine: str, if_exists='replace'):
     """
     Insert a pandas DataFrame into a MySQL table using SQLAlchemy.
 
@@ -147,52 +151,105 @@ def insert_dataframe_to_mysql(df, table_name, engine, if_exists='replace'):
 
 ## EDA FUNCTIONS
 
-# 1. Function to get Top 10 Import Countries per Year
-def top_10_import_countries_per_year(df: pd.DataFrame):
-    # Filter Data for Imports
-    imports_df = df[df['FlowDesc'] == 'Import']
-    # Group by Year, Country, and Commodity
-    top_imports = (imports_df.groupby(['Year', 'PartnerISO', 'CmdCode'])
-                   # Calculate the sum of quantity (Qty_in_kg) and monetary value of the trade (PrimaryValue) for each group.
-                   .agg({'Qty_in_kg': 'sum', 'PrimaryValue': 'sum'})
-                   .reset_index())
-    # Sort and Identify Top 10 Importers
-    top_imports = (top_imports.sort_values(['Year', 'Qty_in_kg'], ascending=[True, False])
-                   # Identify the top 10 importing countries for each year.
-                   .groupby('Year')
-                   .head(10))
-    return top_imports
+# Data Preprocessing for Trade Report Enhancement
+def process_trade_data(df: pd.DataFrame):
+    """
+    Process the trade data by renaming columns and mapping CmdCode to short descriptions.
 
-# 2. Function to get Top 10 Export Countries per Year
-def top_10_export_countries_per_year(data_frame):
-    exports_df = data_frame[data_frame['FlowDesc'] == 'Export']
-    top_exports = (exports_df.groupby(['Year', 'PartnerISO', 'CmdCode'])
-                   .agg({'Qty_in_kg': 'sum', 'PrimaryValue': 'sum'})
+    Parameters:
+    df (pd.DataFrame): The DataFrame containing trade data.
+
+    Returns:
+    pd.DataFrame: The processed DataFrame with renamed columns and short descriptions.
+    """
+    # Rename columns for clarity
+    df = df.rename(columns={
+        'ReporterISO': 'Origin_CountryISO',
+        'ReporterDesc': 'Origin_CountryName',
+        'PartnerDesc': 'Partner_CountryName',          
+        'FlowDesc': 'Trade_Type',
+        'PrimaryValue': 'Trade_Amount'
+    })
+
+    # Map CmdCode to short descriptions
+    cmdcode_mapping = {
+        90111: 'Coffee, Green',
+        90112: 'Coffee, Green Decaf',
+        90121: 'Coffee, Roasted',
+        90122: 'Coffee, Roasted Decaf'
+    }
+
+    # Apply the mapping to create a new column with short descriptions
+    df['Product_Type'] = df['CmdCode'].map(cmdcode_mapping)
+
+    # Reorder columns to place 'Product_Type' after 'CmdDesc'
+    cols = list(df.columns)
+    cmd_desc_index = cols.index('CmdDesc')
+    cols.insert(cmd_desc_index + 1, cols.pop(cols.index('Product_Type')))
+    df = df[cols]
+
+    return df
+
+
+# Function to get Top 5 Export Countries per Year
+def top_export_countries_per_year(df: pd.DataFrame):
+    # Filter Data for Imports using the updated 'Trade_Type' column
+    exports_df = df[df['Trade_Type'] == 'Export']
+    # Group by Year, Partner_CountryName (partner country for the export), and Product_Type (commodity code)
+    top_exports = (exports_df.groupby(['Year', 'Partner_CountryName', 'Product_Type'])
+                   # Calculate the sum of quantity (Qty_in_kg) and monetary value of the trade (Trade_Amount) for each group.
+                   .agg({'Qty_in_kg': 'sum', 'Trade_Amount': 'sum'})
                    .reset_index())
     
     top_exports = (top_exports.sort_values(['Year', 'Qty_in_kg'], ascending=[True, False])
                    .groupby('Year')
-                   .head(10))
+                   .head(5))  # Get top 5 entries for each year
     return top_exports
 
-# 3. Function to get Total Imports, Exports, and Production for CmdCode 90111
-def calculate_estimated_coffee_production(data_frame):
-    estimated_production_df = data_frame[data_frame['CmdCode'] == 90111]
-    
-    # Calculate total imports and exports for each year
-    totals = (estimated_production_df.groupby(['Year', 'FlowDesc'])
-              .agg({'Qty_in_kg': 'sum'})
-              .unstack(fill_value=0)
-              .reset_index())
-    
-    totals.columns = ['Year', 'Imports', 'Exports']
-    totals['Production'] = totals['Exports'] - totals['Imports']
-    
-    return totals
+# To visualize the top 5 export countries for a given range of years
+def plot_top_export_countries(df: pd.DataFrame):
+    plt.figure(figsize=(12, 8))
+    # The x-axis of the bar plot represents the quantity exported
+    # The y-axis represents the names of the partner countries (countries to which the goods are exported).
+    sns.barplot(x='Qty_in_kg', y='Partner_CountryName', hue='Year', data=df, palette='Paired', errorbar=None)
+    plt.title('Top 5 Export Countries per Year')
+    plt.xlabel('Quantity Exported (Billions kg)')
+    plt.ylabel('Partner Country')
+    plt.legend(title='Year', bbox_to_anchor=(1, 1))
+    plt.tight_layout()
+    plt.show()
 
-# Function to get Coffee data grouped per period by flow code and cmd code
-def calculate_grouped_coffee_data(data_frame):
-    grouped_df = (data_frame.groupby(['Period', 'FlowCode', 'CmdCode'])
-                  .agg({'Qty_in_kg': 'sum', 'PrimaryValue': 'sum'})
+# Function to get Top 5 Import Countries per Year
+def top_import_countries_per_year(df: pd.DataFrame):
+    # Filter Data for Imports using the updated 'Trade_Type' column
+    imports_df = df[df['Trade_Type'] == 'Import']
+    
+    # Group by Year, Partner_CountryName (partner country for the import), and Product_Type (commodity code)
+    top_imports = (imports_df.groupby(['Year', 'Partner_CountryName', 'Product_Type'])
+                   # Calculate the sum of quantity (Qty_in_kg) and monetary value of the trade (Trade_Amount) for each group.
+                   .agg({'Qty_in_kg': 'sum', 'Trade_Amount': 'sum'})
+                   .reset_index())
+    
+    # Sort and Identify Top 10 Importers per year based on the quantity (Qty_in_kg)
+    top_imports = (top_imports.sort_values(['Year', 'Qty_in_kg'], ascending=[True, False])
+                   .groupby('Year')
+                   .head(5))  # Get top 5 entries for each year
+    
+    return top_imports
+
+def plot_top_import_countries(top_imports: pd.DataFrame):
+    plt.figure(figsize=(12, 8))
+    sns.barplot(x='Qty_in_kg', y='Partner_CountryName', hue='Year', data=top_imports, errorbar=None)
+    plt.title('Top 10 Import Countries per Year')
+    plt.xlabel('Quantity Imported (kg)')
+    plt.ylabel('Partner Country')
+    plt.legend(title='Year', bbox_to_anchor=(1, 1))
+    plt.tight_layout()
+    plt.show()
+
+# Function to get Coffee Trading data grouped per period by Year, Trade_Type and Product_Type
+def calculate_grouped_coffee_data(df: pd.DataFrame):
+    grouped_df = (df.groupby(['Year', 'Trade_Type', 'Product_Type'])
+                  .agg({'Qty_in_kg': 'sum', 'Trade_Amount': 'sum'})
                   .reset_index())
     return grouped_df
